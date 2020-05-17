@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 基于注解和xml同时注入 
+    	xml优先级高于注解，强调bean类中必须有set()方法
+    	如果只有注解，则可以省略bean类中set()方法(不建议删除set()方法)
+     -->
+    
+    <!-- bean definition here -->
+   	<!-- 扫描com.wmz的这个包及其子包 -->
+    <!-- <context:component-scan base-package="com.wmz"></context:component-scan>
+    扫描com.wmz的所有子包
+    <context:component-scan base-package="com.wmz.*"></context:component-scan> -->
+    <context:component-scan base-package="com.wmz.di09"/>
+    
+    <bean name="myStudent" class="com.wmz.di09.Student">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="李四"></property>
+    	<property name="age" value="24"></property>
+    	<!-- 引用School对象 -->
+    	<property name="school" ref="mySchool"></property>
+    </bean>
+    
+    <bean name="mySchool" class="com.wmz.di09.School">
+    	<property name="sname" value="北京大学"></property>
+    </bean>
+
+</beans>

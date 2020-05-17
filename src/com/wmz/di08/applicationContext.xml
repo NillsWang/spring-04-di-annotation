@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- spring junit4 测试 -->
+    <!-- bean definition here -->
+   	<!-- 扫描com.wmz的这个包及其子包 -->
+    <!-- <context:component-scan base-package="com.wmz"></context:component-scan>
+    扫描com.wmz的所有子包
+    <context:component-scan base-package="com.wmz.*"></context:component-scan> -->
+    <context:component-scan base-package="com.wmz.di08"/>
+
+</beans>
